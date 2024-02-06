@@ -14,7 +14,7 @@ public:
         vector<vector<string>> ans;
 
         for(auto it: mp){
-            ans.push_back(it.second);
+            ans.push_back(it.second);   // it.second m ek pura  vector h wo daal dia
 
         }
         return ans;

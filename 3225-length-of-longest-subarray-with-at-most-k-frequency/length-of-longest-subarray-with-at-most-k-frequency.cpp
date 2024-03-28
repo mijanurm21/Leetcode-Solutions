@@ -12,8 +12,12 @@ public:
         while(i<n && j<n){
             mp[nums[j]]++;
             
-            while (mp[nums[j]] > k)
-                mp[nums[i++]]--;
+            while (mp[nums[j]] > k){
+                
+                mp[nums[i]]--;
+                i++;
+            }
+                
             ans = max(ans, j - i + 1);
         
             j++;

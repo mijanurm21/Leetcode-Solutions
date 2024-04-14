@@ -15,8 +15,8 @@ public:
         if(root == NULL) return ;
 
         solve(root->left, ans);
-        if(root->left && !root->left->left && !root->left->right)ans+=root->left->val;
         solve(root->right, ans);
+        if(root->left && !root->left->left && !root->left->right)ans+=root->left->val;
         
 
     }

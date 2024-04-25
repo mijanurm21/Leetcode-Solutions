@@ -1,30 +1,18 @@
 class Solution {
-private:
-    int solve(int ind, string &s, int prev, int k, vector<vector<int>> &dp) {
-        if(ind == -1) {
-            return 0;
-        }
-        
-        if(dp[ind][prev] != -1)
-            return dp[ind][prev];
-        
-        int take = 0;
-        int ch = s[ind] - 'a' + 1;
-        
-        if (prev == 0 or abs(ch - prev) <= k) {
-            take = solve(ind - 1, s, ch, k, dp) + 1;
-        }
-        
-        int notTake = solve(ind - 1, s, prev, k, dp);
-        return dp[ind][prev] = max(take, notTake);
-    }
 public:
-    
+    int solve(string &s, int k, int ind, int t, vector<vector<int>>&dp){
+        if(ind>=s.size()) return 0;
+        if(dp[ind][t]!= -1) return dp[ind][t];
+
+        int pick = 0;
+        if(t==0 || abs(s[ind]-t)<=k)
+        pick = 1+solve(s,k,ind+1, s[ind], dp);
+        int npick = solve(s,k,ind+1, t, dp);
+
+        return dp[ind][t] = max(pick , npick);
+    }
     int longestIdealString(string s, int k) {
-        
-        int n = s.size();
-        vector<vector<int>> dp(n, vector<int>(27, -1)); // 27 because space for 26 alphabets and one more for '0';
-        
-        return solve(n - 1, s, 0, k, dp);
+        vector<vector<int>>dp (s.size()+1,vector<int>(150,-1));
+        return solve(s,k,0 ,0, dp);        
     }
 };

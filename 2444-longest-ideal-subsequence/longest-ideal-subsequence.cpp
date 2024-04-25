@@ -1,5 +1,5 @@
 class Solution {
-public:
+public:// this is mine
     int solve(string &s, int k, int ind, int t, vector<vector<int>>&dp){
         if(ind>=s.size()) return 0;
         if(dp[ind][t]!= -1) return dp[ind][t];

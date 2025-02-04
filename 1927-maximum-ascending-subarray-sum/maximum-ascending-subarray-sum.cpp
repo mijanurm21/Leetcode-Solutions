@@ -11,14 +11,15 @@ public:
              
             else{
                 maxi= max(maxi, sum);
+               
                 i = j;
-                sum=nums[i];
-                // j = i+1;
+                sum=nums[i];                
             }
             j++;  
-            // cout<<sum<<endl;          
+                     
         }
         maxi = max(sum , maxi);
+   
         return maxi;
 
 
